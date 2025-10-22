@@ -84,3 +84,4 @@ GO
 -- Verificar
 SELECT * FROM Productos;
 SELECT * FROM Pedidos;
+SELECT * FROM Usuarios;
