@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="LOGO_FLYTEK.png" />
+    <None Remove="Resources\ALTAVOZ.png" />
+    <None Remove="Resources\CASCOS.png" />
+    <None Remove="Resources\DRON.png" />
+    <None Remove="Resources\GAFAS.png" />
+    <None Remove="Resources\LOGO_FLYTEK.png" />
+    <None Remove="Resources\RELOJ.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\ALTAVOZ.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\CASCOS.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\DRON.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\GAFAS.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\LOGO_FLYTEK.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\RELOJ.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="LOGO_FLYTEK.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Data\" />
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+</Project>
