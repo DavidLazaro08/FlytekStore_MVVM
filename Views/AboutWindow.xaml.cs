@@ -19,6 +19,7 @@ namespace FlytekStore_MVVM.Views
         public AboutWindow()
         {
             InitializeComponent();
+
         }
     }
 }

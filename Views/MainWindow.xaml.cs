@@ -16,6 +16,8 @@ namespace FlytekStore_MVVM.Views
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
+
 
             // Cargamos el ViewModel para que la vista se alimente de sus datos
             DataContext = new ProductosViewModel();
@@ -53,6 +55,8 @@ namespace FlytekStore_MVVM.Views
         {
             new AboutWindow().ShowDialog();
         }
+
+        public string MensajeEstado { get; set; } = $"Sesión iniciada: {DateTime.Now:g}";
 
 
         // Buscador con LINQ: filtra los productos según el texto introducido
