@@ -1,9 +1,10 @@
-﻿using System;
+﻿using FlytekStore_MVVM.Data;
+using FlytekStore_MVVM.Models;
+using FlytekStore_MVVM.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using FlytekStore_MVVM.ViewModels;
-using FlytekStore_MVVM.Models;
 
 namespace FlytekStore_MVVM.Views
 {
@@ -41,6 +42,11 @@ namespace FlytekStore_MVVM.Views
 
             string contenido = string.Join("\n", carrito);
             MessageBox.Show("Productos en el carrito:\n" + contenido);
+
+            // Guardar en base de datos
+            GestorBD gestor = new GestorBD();
+            gestor.RegistrarCompra(carrito);
+            MessageBox.Show("Compra registrada en la base de datos.");
         }
 
         // Buscador con LINQ: filtra los productos según el texto introducido
