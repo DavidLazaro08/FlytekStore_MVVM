@@ -44,9 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Data\" />
-    <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 

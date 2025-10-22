@@ -1,4 +1,4 @@
-﻿<Window x:Class="GutierrezDavid_WPF.MainWindow"
+﻿<Window x:Class="FlytekStore_MVVM.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Flytek Tienda" Height="700" Width="1000" Background="#ebf0f3">
@@ -6,7 +6,7 @@
     <!-- Contenedor principal -->
     <Grid>
 
-        <!-- HEADER / NAVEGADOR en la barra superior con logo, opciones inactivas, buscador y carrito -->
+        <!-- HEADER / NAVEGADOR -->
         <Grid Height="70" Background="#3d4858" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*" />
@@ -16,9 +16,8 @@
 
             <!-- LOGO -->
             <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" Margin="40,0,0,0">
-                <Image Source="/LOGO_FLYTEK.png" Height="40"/>
+                <Image Source="pack://application:,,,/Resources/LOGO_FLYTEK.png" Height="40"/>
             </StackPanel>
-
 
             <!-- MENÚ DE NAVEGACIÓN -->
             <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -39,15 +38,13 @@
                     </Grid>
                 </Border>
 
-
                 <Button Width="40" Height="30" Background="Transparent" BorderBrush="Transparent" Click="AbrirCarrito_Click">
                     <TextBlock Text="🛒" FontSize="18" Foreground="White"/>
                 </Button>
             </StackPanel>
         </Grid>
 
-
-        <!-- PRODUCTO PRINCIPAL (zona destacada) -->
+        <!-- PRODUCTO PRINCIPAL -->
         <Border Margin="60,100,60,220" Background="Transparent">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -56,23 +53,23 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Imagen grande del Dron -->
-                <Image Grid.Column="0" Source="Resources/DRON.png"
-               Stretch="Uniform" Height="280"
-               HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                <Image Grid.Column="0" Source="pack://application:,,,/Resources/DRON.png"
+                       Stretch="Uniform" Height="280"
+                       HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0"/>
 
                 <!-- Info a la derecha -->
                 <StackPanel Grid.Column="1" Margin="40,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <TextBlock Text="DRON AVANZADO X20" FontSize="26" Foreground="#565c65"
-                       FontWeight="Bold" Margin="0,0,0,10"/>
+                               FontWeight="Bold" Margin="0,0,0,10"/>
                     <TextBlock Text="499,00 €" FontSize="20" Foreground="#8894a1"
-                       Margin="0,0,0,20"/>
+                               Margin="0,0,0,20"/>
                     <Button Tag="DRON AVANZADO X20"
-                    Width="170" Height="38"
-                    Background="#2594df"
-                    Foreground="White"
-                    BorderBrush="#2594df"
-                    Click="AgregarProducto_Click"
-                    HorizontalAlignment="Left">
+                            Width="170" Height="38"
+                            Background="#2594df"
+                            Foreground="White"
+                            BorderBrush="#2594df"
+                            Click="AgregarProducto_Click"
+                            HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <TextBlock Text="+ Añadir al carrito" FontSize="15" Margin="0,0,2,0"/>
                         </StackPanel>
@@ -81,7 +78,6 @@
             </Grid>
         </Border>
 
-
         <!-- CUADRÍCULA DE PRODUCTOS SECUNDARIOS -->
         <UniformGrid Rows="1" Columns="4" Margin="20,400,20,80">
 
@@ -89,7 +85,7 @@
             <Button Tag="RELOJ AVANZADO" Background="#f3f7f6" BorderBrush="#ccd3da" BorderThickness="1"
                     Click="AgregarProducto_Click" Margin="10" Padding="4">
                 <StackPanel>
-                    <Image Source="Resources/RELOJ.png" Height="90" Stretch="Uniform" />
+                    <Image Source="pack://application:,,,/Resources/RELOJ.png" Height="90" Stretch="Uniform" />
                     <TextBlock Text="Reloj avanzado" Foreground="#565c65" FontWeight="SemiBold"
                                TextAlignment="Center" Margin="0,8,0,0"/>
                     <TextBlock Text="129,00 €" Foreground="#8894a1"
@@ -101,7 +97,7 @@
             <Button Tag="CASCOS AVANZADOS" Background="#f3f7f6" BorderBrush="#ccd3da" BorderThickness="1"
                     Click="AgregarProducto_Click" Margin="10" Padding="4">
                 <StackPanel>
-                    <Image Source="Resources/CASCOS.png" Height="90" Stretch="Uniform" />
+                    <Image Source="pack://application:,,,/Resources/CASCOS.png" Height="90" Stretch="Uniform" />
                     <TextBlock Text="Cascos avanzados" Foreground="#565c65" FontWeight="SemiBold"
                                TextAlignment="Center" Margin="0,8,0,0"/>
                     <TextBlock Text="89,00 €" Foreground="#8894a1"
@@ -113,7 +109,7 @@
             <Button Tag="GAFAS AVANZADAS" Background="#f3f7f6" BorderBrush="#ccd3da" BorderThickness="1"
                     Click="AgregarProducto_Click" Margin="10" Padding="4">
                 <StackPanel>
-                    <Image Source="Resources/GAFAS.png" Height="90" Stretch="Uniform" />
+                    <Image Source="pack://application:,,,/Resources/GAFAS.png" Height="90" Stretch="Uniform" />
                     <TextBlock Text="Gafas VR" Foreground="#565c65" FontWeight="SemiBold"
                                TextAlignment="Center" Margin="0,8,0,0"/>
                     <TextBlock Text="159,00 €" Foreground="#8894a1"
@@ -125,7 +121,7 @@
             <Button Tag="ALTAVOZ AVANZADO" Background="#f3f7f6" BorderBrush="#ccd3da" BorderThickness="1"
                     Click="AgregarProducto_Click" Margin="10" Padding="4">
                 <StackPanel>
-                    <Image Source="Resources/ALTAVOZ.png" Height="80" Stretch="Uniform" />
+                    <Image Source="pack://application:,,,/Resources/ALTAVOZ.png" Height="80" Stretch="Uniform" />
                     <TextBlock Text="Altavoz portátil" Foreground="#565c65" FontWeight="SemiBold"
                                TextAlignment="Center" Margin="0,8,0,0"/>
                     <TextBlock Text="49,00 €" Foreground="#8894a1"

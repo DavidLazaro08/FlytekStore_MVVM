@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GutierrezDavid_WPF
+namespace FlytekStore_MVVM.Views
 {
     // Ventana principal (XAML + C#)
     public partial class MainWindow : Window
