@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using FlytekStore_MVVM.Data;
+using FlytekStore_MVVM.Models;
+using System;
+using System.Windows;
 
 namespace FlytekStore_MVVM.Views
 {
@@ -11,24 +14,32 @@ namespace FlytekStore_MVVM.Views
 
         private void Entrar_Click(object sender, RoutedEventArgs e)
         {
-            string nombre = txtNombre.Text.Trim();
+            string nombre = txtNombre.Text;
+            string clave = txtClave.Password;
 
-            // Si el usuario no escribe nada, usamos un texto genérico
-            if (string.IsNullOrEmpty(nombre))
+            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(clave))
             {
-                nombre = "usuario";
+                MessageBox.Show("Completa ambos campos para continuar.");
+                return;
             }
 
-            // Mostramos mensaje de bienvenida
-            MessageBox.Show($"¡Bienvenido, {nombre}! 👋", "Flytek Store",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
+            // Guardar en la base de datos (ficticio pero funcional)
+            GestorBD gestor = new GestorBD();
+            Usuario u = new Usuario
+            {
+                Nombre = nombre,
+                Apellidos = "",
+                Email = $"{nombre.ToLower()}@flytek.com",
+                Contrasena = clave,
+                Rol = "Cliente"
+            };
 
-            // Abre la ventana principal
-            MainWindow main = new MainWindow();
-            main.Show();
+            gestor.InsertarUsuario(u);
 
-            // Cierra el login
-            this.Close();
+            MessageBox.Show($"Bienvenido, {nombre}. Tu sesión se ha guardado.");
+
+            new MainWindow().Show();
+            Close();
         }
     }
 }

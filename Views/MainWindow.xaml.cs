@@ -16,8 +16,6 @@ namespace FlytekStore_MVVM.Views
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
-
 
             // Cargamos el ViewModel para que la vista se alimente de sus datos
             DataContext = new ProductosViewModel();
@@ -26,12 +24,29 @@ namespace FlytekStore_MVVM.Views
         // Evento que se lanza al pulsar "Añadir al carrito"
         private void AgregarProductoDesdeLista_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button btn && btn.DataContext is Producto p)
+            if (sender is Button btn)
             {
-                carrito.Add(p.Nombre);
-                MessageBox.Show($"{p.Nombre} añadido al carrito.");
+                string nombreProducto = null;
+
+                // Si viene desde el ItemsControl (tiene DataContext = Producto)
+                if (btn.DataContext is Producto p)
+                {
+                    nombreProducto = p.Nombre;
+                }
+                // Si es el botón del dron (usa Tag)
+                else if (btn.Tag is string tag)
+                {
+                    nombreProducto = tag;
+                }
+
+                if (!string.IsNullOrEmpty(nombreProducto))
+                {
+                    carrito.Add(nombreProducto);
+                    MessageBox.Show($"{nombreProducto} añadido al carrito.");
+                }
             }
         }
+
 
         // Muestra el contenido del carrito en un MessageBox
         private void AbrirCarrito_Click(object sender, RoutedEventArgs e)
@@ -55,9 +70,6 @@ namespace FlytekStore_MVVM.Views
         {
             new AboutWindow().ShowDialog();
         }
-
-        public string MensajeEstado { get; set; } = $"Sesión iniciada: {DateTime.Now:g}";
-
 
         // Buscador con LINQ: filtra los productos según el texto introducido
         private void Buscar_Click(object sender, RoutedEventArgs e)

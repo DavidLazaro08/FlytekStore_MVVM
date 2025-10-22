@@ -108,9 +108,6 @@
                     VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
             <TextBlock Text="Contacto: info@flytek.com  |  Tel: +123 456 789   |   Síguenos en redes"
                        Foreground="White" VerticalAlignment="Center" Margin="20,0"/>
-            <TextBlock Text="{Binding MensajeEstado}" Foreground="White"
-           VerticalAlignment="Center" Margin="20,0"/>
-
         </StackPanel>
 
     </Grid>
