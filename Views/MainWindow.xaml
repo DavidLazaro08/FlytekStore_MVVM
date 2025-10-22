@@ -68,7 +68,7 @@
                             Background="#2594df"
                             Foreground="White"
                             BorderBrush="#2594df"
-                            Click="AgregarProducto_Click"
+                            Click="AgregarProductoDesdeLista_Click"
                             HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <TextBlock Text="+ Añadir al carrito" FontSize="15" Margin="0,0,2,0"/>
@@ -78,58 +78,30 @@
             </Grid>
         </Border>
 
-        <!-- CUADRÍCULA DE PRODUCTOS SECUNDARIOS -->
-        <UniformGrid Rows="1" Columns="4" Margin="20,400,20,80">
+        <!-- LISTADO DE PRODUCTOS DESDE EL VIEWMODEL -->
+        <ItemsControl ItemsSource="{Binding ListaProductos}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1" Columns="4" Margin="20,400,20,80"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
 
-            <!-- Producto 1 -->
-            <Button Tag="RELOJ AVANZADO" Background="#f3f7f6" BorderBrush="#ccd3da" BorderThickness="1"
-                    Click="AgregarProducto_Click" Margin="10" Padding="4">
-                <StackPanel>
-                    <Image Source="pack://application:,,,/Resources/RELOJ.png" Height="90" Stretch="Uniform" />
-                    <TextBlock Text="Reloj avanzado" Foreground="#565c65" FontWeight="SemiBold"
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Background="#f3f7f6" BorderBrush="#ccd3da" BorderThickness="1"
+                    Margin="10" Padding="4"
+                    Click="AgregarProductoDesdeLista_Click">
+                        <StackPanel>
+                            <Image Source="{Binding Imagen}" Height="90" Stretch="Uniform" />
+                            <TextBlock Text="{Binding Nombre}" Foreground="#565c65" FontWeight="SemiBold"
                                TextAlignment="Center" Margin="0,8,0,0"/>
-                    <TextBlock Text="129,00 €" Foreground="#8894a1"
+                            <TextBlock Text="{Binding Precio, StringFormat={}{0:0.00} €}" Foreground="#8894a1"
                                TextAlignment="Center" Margin="0,4,0,0"/>
-                </StackPanel>
-            </Button>
-
-            <!-- Producto 2 -->
-            <Button Tag="CASCOS AVANZADOS" Background="#f3f7f6" BorderBrush="#ccd3da" BorderThickness="1"
-                    Click="AgregarProducto_Click" Margin="10" Padding="4">
-                <StackPanel>
-                    <Image Source="pack://application:,,,/Resources/CASCOS.png" Height="90" Stretch="Uniform" />
-                    <TextBlock Text="Cascos avanzados" Foreground="#565c65" FontWeight="SemiBold"
-                               TextAlignment="Center" Margin="0,8,0,0"/>
-                    <TextBlock Text="89,00 €" Foreground="#8894a1"
-                               TextAlignment="Center" Margin="0,4,0,0"/>
-                </StackPanel>
-            </Button>
-
-            <!-- Producto 3 -->
-            <Button Tag="GAFAS AVANZADAS" Background="#f3f7f6" BorderBrush="#ccd3da" BorderThickness="1"
-                    Click="AgregarProducto_Click" Margin="10" Padding="4">
-                <StackPanel>
-                    <Image Source="pack://application:,,,/Resources/GAFAS.png" Height="90" Stretch="Uniform" />
-                    <TextBlock Text="Gafas VR" Foreground="#565c65" FontWeight="SemiBold"
-                               TextAlignment="Center" Margin="0,8,0,0"/>
-                    <TextBlock Text="159,00 €" Foreground="#8894a1"
-                               TextAlignment="Center" Margin="0,4,0,0"/>
-                </StackPanel>
-            </Button>
-
-            <!-- Producto 4 -->
-            <Button Tag="ALTAVOZ AVANZADO" Background="#f3f7f6" BorderBrush="#ccd3da" BorderThickness="1"
-                    Click="AgregarProducto_Click" Margin="10" Padding="4">
-                <StackPanel>
-                    <Image Source="pack://application:,,,/Resources/ALTAVOZ.png" Height="80" Stretch="Uniform" />
-                    <TextBlock Text="Altavoz portátil" Foreground="#565c65" FontWeight="SemiBold"
-                               TextAlignment="Center" Margin="0,8,0,0"/>
-                    <TextBlock Text="49,00 €" Foreground="#8894a1"
-                               TextAlignment="Center" Margin="0,4,0,0"/>
-                </StackPanel>
-            </Button>
-
-        </UniformGrid>
+                        </StackPanel>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
         <!-- FOOTER -->
         <StackPanel Orientation="Horizontal" Background="#3d4858" Height="50"

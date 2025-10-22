@@ -1,54 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using FlytekStore_MVVM.ViewModels;
+using FlytekStore_MVVM.Models;
 
 namespace FlytekStore_MVVM.Views
 {
-    // Ventana principal (XAML + C#)
     public partial class MainWindow : Window
     {
-        // Carrito sencillo en memoria
+        // Carrito sencillo (solo nombres de productos por ahora)
         private List<string> carrito = new List<string>();
-
-        // Listado base para el buscador
-        private List<string> productos = new List<string>
-        {
-            "DRON AVANZADO X20",
-            "RELOJ AVANZADO",
-            "CASCOS AVANZADOS",
-            "GAFAS AVANZADAS",
-            "ALTAVOZ AVANZADO"
-        };
 
         public MainWindow()
         {
-            InitializeComponent(); // carga lo del XAML
+            InitializeComponent();
+
+            // Cargamos el ViewModel para que la vista se alimente de sus datos
+            DataContext = new ProductosViewModel();
         }
 
-        // Añadir al carrito (se usa el Tag del botón, como en clase)
-        private void AgregarProducto_Click(object sender, RoutedEventArgs e)
+        // Evento que se lanza al pulsar "Añadir al carrito"
+        private void AgregarProductoDesdeLista_Click(object sender, RoutedEventArgs e)
         {
-            Button boton = sender as Button;
-            string producto = boton?.Tag?.ToString();
-
-            if (!string.IsNullOrEmpty(producto))
+            if (sender is Button btn && btn.DataContext is Producto p)
             {
-                carrito.Add(producto);
-                MessageBox.Show(producto + " añadido al carrito.");
+                carrito.Add(p.Nombre);
+                MessageBox.Show($"{p.Nombre} añadido al carrito.");
             }
         }
 
-        // Ver carrito
+        // Muestra el contenido del carrito en un MessageBox
         private void AbrirCarrito_Click(object sender, RoutedEventArgs e)
         {
             if (carrito.Count == 0)
@@ -61,31 +43,15 @@ namespace FlytekStore_MVVM.Views
             MessageBox.Show("Productos en el carrito:\n" + contenido);
         }
 
-        // Buscar por nombre (coincidencia sencilla)
+        // Buscador con LINQ: filtra los productos según el texto introducido
         private void Buscar_Click(object sender, RoutedEventArgs e)
         {
-            string termino = txtBuscador.Text.ToLower().Trim();
-
-            // Si no hay término, aviso normalito
-            if (string.IsNullOrWhiteSpace(termino))
+            var vm = DataContext as FlytekStore_MVVM.ViewModels.ProductosViewModel;
+            if (vm != null)
             {
-                MessageBox.Show("Escribe algo para buscar.");
-                return;
-            }
-
-            // Búsqueda sencilla (lo visto en colecciones/LINQ)
-            var encontrados = productos
-                .Where(p => p.ToLower().Contains(termino))
-                .ToList();
-
-            if (encontrados.Count == 0)
-            {
-                MessageBox.Show("No se encontraron productos.");
-            }
-            else
-            {
-                MessageBox.Show("Resultados:\n" + string.Join("\n", encontrados));
+                vm.Filtrar(txtBuscador.Text);
             }
         }
     }
 }
+
