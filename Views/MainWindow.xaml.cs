@@ -48,6 +48,12 @@ namespace FlytekStore_MVVM.Views
             gestor.RegistrarCompra(carrito);
             MessageBox.Show("Compra registrada en la base de datos.");
         }
+        // Botón AcercaDe funcional
+                private void AbrirAcercaDe_Click(object sender, RoutedEventArgs e)
+        {
+            new AboutWindow().ShowDialog();
+        }
+
 
         // Buscador con LINQ: filtra los productos según el texto introducido
         private void Buscar_Click(object sender, RoutedEventArgs e)

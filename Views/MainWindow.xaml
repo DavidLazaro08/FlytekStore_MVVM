@@ -23,7 +23,7 @@
             <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button Content="Inicio" Margin="10,0" Foreground="#2594df" Background="Transparent" BorderBrush="Transparent"/>
                 <Button Content="Catálogo" Margin="10,0" Foreground="#f3f7f6" Background="Transparent" BorderBrush="Transparent"/>
-                <Button Content="Acerca de" Margin="10,0" Foreground="#f3f7f6" Background="Transparent" BorderBrush="Transparent"/>
+                <Button Content="Acerca de" Click="AbrirAcercaDe_Click" Margin="10,0" Foreground="#f3f7f6" Background="Transparent" BorderBrush="Transparent"/>
                 <Button Content="Contacto" Margin="10,0" Foreground="#f3f7f6" Background="Transparent" BorderBrush="Transparent"/>
             </StackPanel>
 

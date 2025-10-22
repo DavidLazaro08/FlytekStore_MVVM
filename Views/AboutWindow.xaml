@@ -1,0 +1,18 @@
+﻿<Window x:Class="FlytekStore_MVVM.Views.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Acerca de Flytek" Height="300" Width="450" Background="#f3f7f6">
+    <Grid Margin="20">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Flytek Store - Proyecto DAM" 
+                       FontSize="18" FontWeight="Bold" Foreground="#3d4858" 
+                       Margin="0,0,0,10" TextAlignment="Center"/>
+            <TextBlock Text="Desarrollado por: David Gutiérrez" 
+                       FontSize="14" Foreground="#555" TextAlignment="Center"/>
+            <TextBlock Text="Curso: 2º DAM | Ilerna Sevilla" 
+                       FontSize="14" Foreground="#555" TextAlignment="Center" Margin="0,5,0,5"/>
+            <TextBlock Text="Conexión SQL Server · Patrón MVVM · ADO.NET" 
+                       FontSize="12" Foreground="#777" TextAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>
